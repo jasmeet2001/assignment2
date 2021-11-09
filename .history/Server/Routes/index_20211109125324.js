@@ -8,11 +8,7 @@ const router = express_1.default.Router();
 exports.default = router;
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Home' });
-});
-/* GET home page. */
-router.get('/home', function (req, res, next) {
-    res.render('index', { title: 'Home' });
+    res.render('index', { title: 'Home Page' });
 });
 /* GET about page. */
 router.get('/about', function (req, res, next) {
@@ -30,5 +26,7 @@ router.get('/services', function (req, res, next) {
 router.get('/contact', function (req, res, next) {
     res.render('index', { title: 'Contact Me' });
 });
+
+
 //module.exports = router;
 //# sourceMappingURL=index.js.map

@@ -14,6 +14,7 @@ router.get('/', function (req, res, next) {
 router.get('/home', function (req, res, next) {
     res.render('index', { title: 'Home' });
 });
+
 /* GET about page. */
 router.get('/about', function (req, res, next) {
     res.render('index', { title: 'About Me' });
@@ -30,5 +31,7 @@ router.get('/services', function (req, res, next) {
 router.get('/contact', function (req, res, next) {
     res.render('index', { title: 'Contact Me' });
 });
+
+
 //module.exports = router;
 //# sourceMappingURL=index.js.map
