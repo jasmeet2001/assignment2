@@ -6,42 +6,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const router = express_1.default.Router();
 exports.default = router;
-//get reference to the game model class
-const game_1 = __importDefault(require("../Models/game"));
+//instantiate an object of type index controller
+const index_1 = require("../Controllers/index");
 /* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index', { title: 'home', page: 'home' });
-});
+router.get('/', index_1.DisplayHomePage);
 /* GET home page. */
-router.get('/home', function (req, res, next) {
-    res.render('index', { title: 'home', page: 'home' });
-});
+router.get('/home', index_1.DisplayHomePage);
 /* GET about page. */
-router.get('/about', function (req, res, next) {
-    res.render('index', { title: 'about me', page: 'about' });
-});
+router.get('/about', index_1.DisplayAboutPage);
 /* GET projects page. */
-router.get('/projects', function (req, res, next) {
-    res.render('index', { title: 'projects', page: 'projects' });
-});
+router.get('/projects', index_1.DisplayProjectsPage);
 /* GET services page. */
-router.get('/services', function (req, res, next) {
-    res.render('index', { title: 'services', page: 'services' });
-});
+router.get('/services', index_1.DisplayServicesPage);
 /* GET contact page. */
-router.get('/contact', function (req, res, next) {
-    res.render('index', { title: 'contact me', page: 'contact' });
-});
+router.get('/contact', index_1.DisplayContactPage);
 /*GET games-list */
-router.get('/games-list', function (req, res, next) {
-    //similar to db.game.find()
-    game_1.default.find(function (err, gamesCollection) {
-        if (err) {
-            console.error(err);
-            res.end(err);
-        }
-        res.render('index', { title: 'games-list', page: 'Games Collection', games: gamesCollection });
-    });
-});
+router.get('/games-list', index_1.DisplayGamesListPage);
 //module.exports = router;
 //# sourceMappingURL=index.js.map
