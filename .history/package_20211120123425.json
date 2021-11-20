@@ -1,6 +1,6 @@
 {
-  "name": "assignment2-comp229",
-  "version": "0.0.2",
+  "name": "assignment1-comp229",
+  "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node server.js"
