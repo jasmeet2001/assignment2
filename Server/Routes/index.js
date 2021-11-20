@@ -40,7 +40,7 @@ router.get('/games-list', function (req, res, next) {
             console.error(err);
             res.end(err);
         }
-        console.log(gamesCollection);
+        res.render('index', { title: 'games-list', page: 'Games Collection', games: gamesCollection });
     });
 });
 //module.exports = router;
