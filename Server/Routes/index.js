@@ -24,7 +24,13 @@ router.get('/contact', index_1.DisplayContactPage);
 router.get('/businessContacts-list', index_1.DisplayBusinessContactsListPage);
 /* GET login page. */
 router.get('/login', index_1.DisplayLoginPage);
+/* POST process login page */
+router.post('/login', index_1.ProcessLoginPage);
 /* GET register page. */
 router.get('/register', index_1.DisplayRegisterPage);
+/* POST process register page */
+router.post('/register', index_1.ProcessRegisterPage);
+/* GET logout page */
+router.get('/logout', index_1.ProcessLogOutPage);
 //module.exports = router;
 //# sourceMappingURL=index.js.map

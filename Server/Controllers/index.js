@@ -3,7 +3,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayBusinessContactsListPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.ProcessLogOutPage = exports.ProcessRegisterPage = exports.DisplayRegisterPage = exports.ProcessLoginPage = exports.DisplayLoginPage = exports.DisplayBusinessContactsListPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+const passport_1 = __importDefault(require("passport"));
+//create an instance of user model
+const user_1 = __importDefault(require("../Models/user"));
 //get reference to the businessContact model class
 const businessContact_1 = __importDefault(require("../Models/businessContact"));
 function DisplayHomePage(req, res, next) {
@@ -37,12 +40,70 @@ function DisplayBusinessContactsListPage(req, res, next) {
     });
 }
 exports.DisplayBusinessContactsListPage = DisplayBusinessContactsListPage;
+/* functions for authentication */
 function DisplayLoginPage(req, res, next) {
     res.render('index', { title: 'login', page: 'Login' });
 }
 exports.DisplayLoginPage = DisplayLoginPage;
+function ProcessLoginPage(req, res, next) {
+    let loginInfo = {
+        username: req.body.username,
+        password: req.body.password
+    };
+    passport_1.default.authenticate('local', (err, user, info) => {
+        console.log(user);
+        //are there any servers errors?
+        if (err) {
+            console.error(err);
+            return next(err);
+        }
+        //are there any login errors?
+        if (!user) {
+            req.flash('loginMessage', 'Authentication Error');
+            return res.redirect('/login');
+        }
+        req.login(user, (err) => {
+            // are there any db errors?
+            if (err) {
+                console.error(err);
+                return next(err);
+            }
+            console.log("Logged In successfully");
+            return res.redirect('/businessContacts-list');
+        });
+    })(req, res, next);
+}
+exports.ProcessLoginPage = ProcessLoginPage;
 function DisplayRegisterPage(req, res, next) {
     res.render('index', { title: 'register', page: 'Register' });
 }
 exports.DisplayRegisterPage = DisplayRegisterPage;
+function ProcessRegisterPage(req, res, next) {
+    // instructions for new User object
+    let newUser = new user_1.default({
+        username: req.body.username,
+        emailaddress: req.body.emailaddress,
+        displayName: req.body.firstName + "" + req.body.lastName
+    });
+    user_1.default.register(newUser, req.body.password, (err) => {
+        if (err) {
+            console.error('Error: Inserting New User');
+            if (err.name == "UserExistsError") {
+                console.error('Error: User Already Exists');
+            }
+            req.flash('registerMessage', 'Registration Error');
+            return res.redirect('/register');
+        }
+        // after successful registration - lets login the user
+        return passport_1.default.authenticate('local')(req, res, () => {
+            return res.redirect('businessContacts-list');
+        });
+    });
+}
+exports.ProcessRegisterPage = ProcessRegisterPage;
+function ProcessLogOutPage(req, res, next) {
+    req.logOut();
+    res.redirect('/login');
+}
+exports.ProcessLogOutPage = ProcessLogOutPage;
 //# sourceMappingURL=index.js.map
