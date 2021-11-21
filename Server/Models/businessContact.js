@@ -5,14 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
 const Schema = mongoose_1.default.Schema; //alias for mongoose Schema
-const GameSchema = new Schema({
-    name: String,
-    genre: String,
-    developer: String,
-    cost: Number,
+const BusinessContactsSchema = new Schema({
+    contactName: String,
+    contactNumber: Number,
+    emailAddress: String,
 }, {
-    collection: "games"
+    collection: "businessContacts"
 });
-const Model = mongoose_1.default.model("Game", GameSchema);
+const Model = mongoose_1.default.model("BusinessContact", BusinessContactsSchema);
 exports.default = Model;
-//# sourceMappingURL=game.js.map
+//# sourceMappingURL=businessContact.js.map

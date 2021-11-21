@@ -7,22 +7,21 @@
             <thead class="table-dark">
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Genre</th>
-                    <th scope="col">Developer</th>
+                    <th scope="col">Contact Name</th>
+                    <th scope="col">Contact Number</th>
+                    <th scope="col">Email Address</th>
                     <th scope="col">Cost</th>
                 </tr>
             </thead>
             <tbody>
 
-                <% for(let count=0; count <games.length; count++) { %>
+                <% for(let count=0; count <businessContacts.length; count++) { %>
                     <!-- Repeatable Row Template-->
                     <tr>
                         <th scope="row"><%= count + 1 %></th>
-                        <td><%= games[count].name %> </td>
-                        <td><%= games[count].genre %></td>
-                        <td><%= games[count].developer %></td>
-                        <td><%= games[count].cost %></td>
+                        <td><%= businessContacts[count].contactName %> </td>
+                        <td><%= businessContacts[count].contactNumber %></td>
+                        <td><%= businessContacts[count].emailAddress %></td>
                     </tr>
                 <% } %> 
             </tbody>
@@ -30,4 +29,3 @@
 
     </div>
 </div>
-

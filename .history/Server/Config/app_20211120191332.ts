@@ -20,7 +20,7 @@ export default app;
 
 //DB Configuration
 import * as DBConfig from './db';
-mongoose.connect(DBConfig.RemoteURI, {useNewUrlParser : true, useUnifiedTopology : true})
+mongoose.connect(DBConfig.LocalURI, {useNewUrlParser : true, useUnifiedTopology : true})
 
 const db = mongoose.connection; //alias for mongoose connection
 db.on("error", function()

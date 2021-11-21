@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayGamesListPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
-//get reference to the game model class
-const game_1 = __importDefault(require("../Models/game"));
+exports.DisplayBusinessContactsListPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+//get reference to the businessContact model class
+const businessContact_1 = __importDefault(require("../Models/businessContact"));
 function DisplayHomePage(req, res, next) {
     res.render('index', { title: 'home', page: 'home' });
 }
@@ -26,15 +26,16 @@ function DisplayContactPage(req, res, next) {
     res.render('index', { title: 'contact me', page: 'contact' });
 }
 exports.DisplayContactPage = DisplayContactPage;
-function DisplayGamesListPage(req, res, next) {
+function DisplayBusinessContactsListPage(req, res, next) {
     //similar to db.game.find()
-    game_1.default.find(function (err, gamesCollection) {
+    businessContact_1.default.find(function (err, businessContactsCollection) {
         if (err) {
             console.error(err);
             res.end(err);
         }
-        res.render('index', { title: 'games-list', page: 'Games Collection', games: gamesCollection });
+        res.render('index', { title: 'businessContacts-list', page: 'Business Contacts List', businessContacts: businessContactsCollection });
     });
 }
-exports.DisplayGamesListPage = DisplayGamesListPage;
+exports.DisplayBusinessContactsListPage = DisplayBusinessContactsListPage;
+// Business Contacts List
 //# sourceMappingURL=index.js.map

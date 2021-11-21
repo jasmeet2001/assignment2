@@ -1,6 +1,6 @@
 import express, {Request, Response, NextFunction} from 'express';
 
-//get reference to the businessContact model class
+//get reference to the game model class
 import BusinessContact from '../Models/businessContact';
 
 export function DisplayHomePage(req: Request, res: Response, next: NextFunction): void

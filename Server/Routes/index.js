@@ -21,6 +21,6 @@ router.get('/services', index_1.DisplayServicesPage);
 /* GET contact page. */
 router.get('/contact', index_1.DisplayContactPage);
 /*GET games-list */
-router.get('/games-list', index_1.DisplayGamesListPage);
+router.get('/businessContacts-list', index_1.DisplayBusinessContactsListPage);
 //module.exports = router;
 //# sourceMappingURL=index.js.map

@@ -1,6 +1,9 @@
 {
     "businessContacts":
     [
+        {"name": "Red Dead Redemption 2", "genre": "Action-Adventure", "developer": "RockStar", "cost": 79.99},
+        {"name": "Dark Souls III", "genre": "Fantasy Adventure", "developer": "From Software", "cost": 66.49},
+        {"name": "Fallout 4", "genre": "Sci-Fi RPG", "developer": "Bathesda", "cost": 26.99},
         {"contactName": "Jasmeet", "contactNumber": 6456784081, "emailAddress": "jkaur@gmail.com"},
         {"contactName": "Harleen", "contactNumber": 6496984081, "emailAddress": "hkaur@gmail.com"},
         {"contactName": "Inderjit", "contactNumber": 6486784081, "emailAddress": "ikaur@gmail.com"}
