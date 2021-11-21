@@ -39,13 +39,13 @@ const app = (0, express_1.default)();
 exports.default = app;
 //DB Configuration
 const DBConfig = __importStar(require("./db"));
-mongoose_1.default.connect(DBConfig.RemoteURI, { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose_1.default.connect((DBConfig.RemoteURI) ? DBConfig.RemoteURI : DBConfig.LocalURI, { useNewUrlParser: true, useUnifiedTopology: true });
 const db = mongoose_1.default.connection; //alias for mongoose connection
 db.on("error", function () {
     console.error("Connection Error");
 });
 db.once("open", function () {
-    console.log('Connected to MongoDB at: ${DBConfig.HostName}');
+    console.log(`Connected to MongoDB at: ${DBConfig.HostName}`);
 });
 // view engine setup
 app.set('views', path_1.default.join(__dirname, '../Views'));

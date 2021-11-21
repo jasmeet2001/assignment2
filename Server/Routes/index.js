@@ -22,5 +22,9 @@ router.get('/services', index_1.DisplayServicesPage);
 router.get('/contact', index_1.DisplayContactPage);
 /*GET games-list */
 router.get('/businessContacts-list', index_1.DisplayBusinessContactsListPage);
+/* GET login page. */
+router.get('/login', index_1.DisplayLoginPage);
+/* GET register page. */
+router.get('/register', index_1.DisplayRegisterPage);
 //module.exports = router;
 //# sourceMappingURL=index.js.map

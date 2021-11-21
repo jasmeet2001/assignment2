@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DisplayBusinessContactsListPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
+exports.DisplayRegisterPage = exports.DisplayLoginPage = exports.DisplayBusinessContactsListPage = exports.DisplayContactPage = exports.DisplayServicesPage = exports.DisplayProjectsPage = exports.DisplayAboutPage = exports.DisplayHomePage = void 0;
 //get reference to the businessContact model class
 const businessContact_1 = __importDefault(require("../Models/businessContact"));
 function DisplayHomePage(req, res, next) {
@@ -37,5 +37,12 @@ function DisplayBusinessContactsListPage(req, res, next) {
     });
 }
 exports.DisplayBusinessContactsListPage = DisplayBusinessContactsListPage;
-// Business Contacts List
+function DisplayLoginPage(req, res, next) {
+    res.render('index', { title: 'login', page: 'Login' });
+}
+exports.DisplayLoginPage = DisplayLoginPage;
+function DisplayRegisterPage(req, res, next) {
+    res.render('index', { title: 'register', page: 'Register' });
+}
+exports.DisplayRegisterPage = DisplayRegisterPage;
 //# sourceMappingURL=index.js.map
