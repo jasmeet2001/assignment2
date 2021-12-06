@@ -25,12 +25,12 @@
                         <td class="text-center col-2"><%= businessContacts[count].contactName %> </td>
                         <td class="text-center col-2"><%= businessContacts[count].contactNumber %></td>
                         <td class="text-center col-2"><%= businessContacts[count].emailAddress %></td>
-                        <td class="text-center col-1"><%= businessContacts[count]._id %>
-                        <a href ="/edit/:id" class="btn btn-primary">
+                        <td class="text-center col-1">
+                        <a href ="/edit/<%= businessContacts[count]._id%> " class="btn btn-primary">
                        <i class="fas fa-pencil-alt"></i> Edit</a>
                         </td>
-                        <td class="text-center col-1"><%= businessContacts[count]._id%>
-                        <a href="/delete/:id" class="btn btn-danger">
+                        <td class="text-center col-1">
+                        <a href="/delete/<%= businessContacts[count]._id%>" class="btn btn-danger">
                         <i class = "fas fa-trash-alt"></i> Delete</a>
                         </td>
                     </tr>
