@@ -12,8 +12,8 @@
                     <th class="text-center col-2">Contact Name</th>
                     <th class="text-center col-2">Contact Number</th>
                     <th class="text-center col-2">Email Address</th>
-                    <th class="text-center col-1"></th>
-                    <th class="text-center col-1"></th>
+                    <th class="text-center col-2"></th>
+                    <th class="text-center col-2"></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,17 +22,9 @@
                     <!-- Repeatable Row Template-->
                     <tr>
                         <th scope="row"><%= count + 1 %></th>
-                        <td class="text-center col-2"><%= businessContacts[count].contactName %> </td>
-                        <td class="text-center col-2"><%= businessContacts[count].contactNumber %></td>
-                        <td class="text-center col-2"><%= businessContacts[count].emailAddress %></td>
-                        <td class="text-center col-1">
-                        <a href ="/edit/<%= businessContacts[count]._id%> " class="btn btn-primary">
-                       <i class="fas fa-pencil alt"></i> Edit</a>
-                        </td>
-                        <td class="text-center col-1">
-                        <a href="/delete/<%= businessContacts[count]._id%>" class="btn btn-danger">
-                        <i class = "fas fa-trash-alt"></i> Delete</a>
-                        </td>
+                        <td><%= businessContacts[count].contactName %> </td>
+                        <td><%= businessContacts[count].contactNumber %></td>
+                        <td><%= businessContacts[count].emailAddress %></td>
                     </tr>
                 <% } %> 
             </tbody>

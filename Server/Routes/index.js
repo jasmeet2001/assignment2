@@ -33,4 +33,14 @@ router.post('/register', index_1.ProcessRegisterPage);
 /* GET logout page */
 router.get('/logout', index_1.ProcessLogOutPage);
 //module.exports = router;
+/* GET route for displaying add page - CREATE operation */
+router.get('/add', index_1.DisplayAddPage);
+/* POST route for processing add page - CREATE operation*/
+router.post('/add', index_1.ProcessAddPage);
+/* GET route for displaying edit page - UPDATE operation*/
+router.get('/edit/:id', index_1.DisplayEditPage);
+/* POST route for processing edit page - UPDATE operation*/
+router.post('/edit/:id', index_1.ProcessEditPage);
+/* GET route to perform deletion - DELETE operation*/
+router.get('/delete/:id', index_1.ProcessDeletePage);
 //# sourceMappingURL=index.js.map
