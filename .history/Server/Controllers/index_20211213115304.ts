@@ -130,7 +130,7 @@ export function ProcessLogOutPage(req: Request, res:Response, next: NextFunction
 }
 export function DisplayAddPage(req: Request, res:Response, next: NextFunction): void
 {
-    res.render('index', { title: 'businessContacts-add', page: 'Add Business Contact'});
+    res.render('index', { title: 'add', page: 'Add Business Contact'});
 }
 
 export function ProcessAddPage (req: Request, res:Response, next: NextFunction): void
@@ -165,7 +165,7 @@ export function DisplayEditPage (req: Request, res:Response, next: NextFunction)
         }
         else{
             //show the edit view
-            res.render('index', { title: 'businessContacts-edit', page: 'Edit Business Contact', businessContact: contactToEdit})
+            res.render('index', { title: 'edit', page: 'Edit Business Contact', businessContact: contactToEdit})
         }
     });
 }
