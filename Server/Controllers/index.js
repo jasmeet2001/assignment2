@@ -107,7 +107,7 @@ function ProcessLogOutPage(req, res, next) {
 }
 exports.ProcessLogOutPage = ProcessLogOutPage;
 function DisplayAddPage(req, res, next) {
-    res.render('index', { title: 'businessContacts-add', page: 'Add Business Contact' });
+    res.render('index', { title: 'add', page: 'Add Business Contact' });
 }
 exports.DisplayAddPage = DisplayAddPage;
 function ProcessAddPage(req, res, next) {
@@ -137,7 +137,7 @@ function DisplayEditPage(req, res, next) {
         }
         else {
             //show the edit view
-            res.render('index', { title: 'businessContacts-edit', page: 'Edit Business Contact', businessContact: contactToEdit });
+            res.render('index', { title: 'edit', page: 'Edit Business Contact', businessContact: contactToEdit });
         }
     });
 }
