@@ -20,8 +20,8 @@ router.get('/projects', index_1.DisplayProjectsPage);
 router.get('/services', index_1.DisplayServicesPage);
 /* GET contact page. */
 router.get('/contact', index_1.DisplayContactPage);
-/*GET games-list */
-router.get('/businessContacts-list', index_1.DisplayBusinessContactsListPage);
+/*GET conatcts-list */
+router.get('/list', index_1.DisplayBusinessContactsListPage);
 /* GET login page. */
 router.get('/login', index_1.DisplayLoginPage);
 /* POST process login page */

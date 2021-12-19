@@ -46,17 +46,18 @@
       <% } %>
           <a class="nav-link" href="/contact"><i class ="fas fa-phone"></i>Contact Me</a>
         </li>
+        
+        <% if(typeof displayName == 'string' && displayName) { %>
+          <% if (title == "home") {%>
+            <a class ="nav-link active" href="/list"><i class="fas fa-phone"></i> Business Contacts</a>
+            <% } else {%>
+              <a class ="nav-link" href="/list"><i class= "fas fa-phone"></i> Business Contacts</a>  
+              <% } %>  
+              <li class="nav-item">
 
-        <% if (title == "list" ) { %>
-          <li class="nav-item active">
-          <% } else { %>
-          <li class ="nav-item">
-          <% } %>
-              <a class="nav-link" href="/login"><i class ="fas fa-map"></i>Business Contacts</a>
-            </li>
-    
+              </li>
 
-        <% if(typeof displayName == 'string' && displayName) { %> 
+        <% if(typeof displayName == 'string' && displayName) { %>  
           <li class="navbar-text"><i class="fas fa-lg fa-user"></i> Welcome, <%= displayName %> </li>
           <li class="nav-item"> 
             <a href="/logout" class="nav-link">

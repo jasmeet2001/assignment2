@@ -36,7 +36,7 @@ function DisplayBusinessContactsListPage(req, res, next) {
             console.error(err);
             res.end(err);
         }
-        res.render('index', { title: 'businessContacts-list', page: 'Business Contacts List', businessContacts: businessContactsCollection });
+        res.render('index', { title: 'list', page: 'Business Contacts List', businessContacts: businessContactsCollection });
     });
 }
 exports.DisplayBusinessContactsListPage = DisplayBusinessContactsListPage;
@@ -69,7 +69,7 @@ function ProcessLoginPage(req, res, next) {
                 return next(err);
             }
             console.log("Logged In successfully");
-            return res.redirect('/businessContacts-list');
+            return res.redirect('/list');
         });
     })(req, res, next);
 }
@@ -96,7 +96,7 @@ function ProcessRegisterPage(req, res, next) {
         }
         // after successful registration - lets login the user
         return passport_1.default.authenticate('local')(req, res, () => {
-            return res.redirect('businessContacts-list');
+            return res.redirect('/list');
         });
     });
 }
@@ -107,7 +107,7 @@ function ProcessLogOutPage(req, res, next) {
 }
 exports.ProcessLogOutPage = ProcessLogOutPage;
 function DisplayAddPage(req, res, next) {
-    res.render('index', { title: 'businessContacts-add', page: 'Add Business Contact' });
+    res.render('index', { title: 'add', page: 'Add Business Contact' });
 }
 exports.DisplayAddPage = DisplayAddPage;
 function ProcessAddPage(req, res, next) {
@@ -116,14 +116,14 @@ function ProcessAddPage(req, res, next) {
         "contactNumber": req.body.contactNumber,
         "emailAddress": req.body.emailAddress,
     });
-    businessContact_1.default.create(newContact, (err, BusinessContact) => {
+    businessContact_1.default.create(newContact, (err, businessContactsCollection) => {
         if (err) {
             console.log(err);
             res.end(err);
         }
         else {
             //refresh the business contact list
-            res.render('index', { title: 'businessContacts-list', page: 'Business Contact List' });
+            res.redirect('/list');
         }
     });
 }
@@ -137,7 +137,7 @@ function DisplayEditPage(req, res, next) {
         }
         else {
             //show the edit view
-            res.render('index', { title: 'businessContacts-edit', page: 'Edit Business Contact', businessContact: contactToEdit });
+            res.render('index', { title: 'edit', page: 'Edit Business Contact', businessContact: contactToEdit });
         }
     });
 }
@@ -145,7 +145,7 @@ exports.DisplayEditPage = DisplayEditPage;
 function ProcessEditPage(req, res, next) {
     let id = req.params.id;
     let updatedContact = new businessContact_1.default({
-        "id": id,
+        "_id": id,
         "contactName": req.body.contactName,
         "contactNumber": req.body.contactNumber,
         "emailAddress": req.body.emailAddress,
@@ -157,7 +157,8 @@ function ProcessEditPage(req, res, next) {
         }
         else {
             //refresh the business contact list
-            res.render('index', { title: 'businessContacts-list', page: 'Business Contact List' });
+            res.redirect('/list');
+            //res.render('index', { title: 'list', page: 'Business Contact List'});
         }
     });
 }
@@ -171,7 +172,7 @@ function ProcessDeletePage(req, res, next) {
         }
         else {
             //refresh the business contact list
-            res.render('index', { title: 'businessContacts-list', page: 'Business Contact List' });
+            res.redirect('/list');
         }
     });
 }

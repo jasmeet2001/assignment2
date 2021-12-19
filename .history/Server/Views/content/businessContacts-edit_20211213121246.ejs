@@ -1,0 +1,38 @@
+<! -- Content for the add page -->
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6"></div>
+        <h1><%= page  %> </h1>
+
+        <form class="form" method="POST">
+
+            <div class="form-group">
+                <label for="nameTextField"> Contact Name</label>
+                <input type="text" class="form-control"
+                id="contactNameTextField"
+                placeholder="Enter the contact name"
+                name="contactName" required>
+            </div>
+            <div class="form-group">
+                <label for="contactNumberTextField"> Contact Number</label>
+                <input type="number" class="form-control"
+                id="contactNumberTextField"
+                placeholder="Enter the contact number"
+                name="contactNumber" required>
+            </div>
+            <div class="form-group">
+                <label for="emailAddressTextField"> Email Address</label>
+                <input type="email" class="form-control"
+                id="emailAddressTextField"
+                placeholder="Enter the email address"
+                name="emailAddress" required>
+            </div>
+            <br>
+            <button href="/businessContacts-list"button class ="btn btn-primary" type="submit">
+            <i class="fas fa-edit"></i> Submit</button>
+            <a href="/businessContacts-list" class="btn btn-warning"><i class="fas fa-undo"></i> Cancel</a>
+
+        </form>
+    </div>
+</div>

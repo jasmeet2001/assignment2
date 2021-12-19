@@ -20,7 +20,7 @@ router.get('/services', DisplayServicesPage);
 router.get('/contact',DisplayContactPage);
 
 /*GET conatcts-list */
-router.get('/list', DisplayBusinessContactsListPage);
+router.get('/businessContacts-list', DisplayBusinessContactsListPage);
 
 /* GET login page. */
 router.get('/login',DisplayLoginPage);

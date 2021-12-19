@@ -85,7 +85,7 @@ export function ProcessLoginPage(req: Request, res:Response, next: NextFunction)
                 return next(err);
             }
             console.log("Logged In successfully");
-            return res.redirect('/list');
+            return res.redirect('/businessContacts-list');
         });
 
     }) (req, res, next);
@@ -119,7 +119,7 @@ export function ProcessRegisterPage(req: Request, res:Response, next: NextFuncti
         // after successful registration - lets login the user
         return passport.authenticate('local')(req,res, () =>
         {
-            return res.redirect('/list');
+            return res.redirect('businessContacts-list');
         });
     });
 }
@@ -175,7 +175,7 @@ export function ProcessEditPage (req: Request, res:Response, next: NextFunction)
     let id = req.params.id
 
     let updatedContact = new BusinessContact({
-        "_id" : id,
+        "id" : id,
         "contactName": req.body.contactName,
     "contactNumber": req.body.contactNumber,
     "emailAddress": req.body.emailAddress,
@@ -209,7 +209,7 @@ export function ProcessDeletePage (req: Request, res:Response, next: NextFunctio
         else
         {
              //refresh the business contact list
-             res.redirect('/list');
+     res.render('index', { title: 'list', page: 'Business Contact List'});
         }  
     });
 }

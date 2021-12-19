@@ -40,7 +40,7 @@ export function DisplayBusinessContactsListPage(req: Request, res: Response, nex
      res.end(err);
    }
    
-    res.render('index', { title: 'list', page: 'Business Contacts List', businessContacts: businessContactsCollection });
+    res.render('index', { title: 'c', page: 'Business Contacts List', businessContacts: businessContactsCollection });
    
  });
 }

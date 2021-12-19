@@ -40,7 +40,7 @@ export function DisplayBusinessContactsListPage(req: Request, res: Response, nex
      res.end(err);
    }
    
-    res.render('index', { title: 'list', page: 'Business Contacts List', businessContacts: businessContactsCollection });
+    res.render('index', { title: 'businessContacts-list', page: 'Business Contacts List', businessContacts: businessContactsCollection });
    
  });
 }
@@ -85,7 +85,7 @@ export function ProcessLoginPage(req: Request, res:Response, next: NextFunction)
                 return next(err);
             }
             console.log("Logged In successfully");
-            return res.redirect('/list');
+            return res.redirect('/businessContacts-list');
         });
 
     }) (req, res, next);
@@ -119,7 +119,7 @@ export function ProcessRegisterPage(req: Request, res:Response, next: NextFuncti
         // after successful registration - lets login the user
         return passport.authenticate('local')(req,res, () =>
         {
-            return res.redirect('/list');
+            return res.redirect('businessContacts-list');
         });
     });
 }
@@ -140,7 +140,7 @@ let newContact = new BusinessContact({
     "contactNumber": req.body.contactNumber,
     "emailAddress": req.body.emailAddress,
 });
-BusinessContact.create(newContact, (err, businessContactsCollection) =>{
+BusinessContact.create(newContact, (err, BusinessContact) =>{
  if(err)
  {
      console.log(err);
@@ -149,8 +149,7 @@ BusinessContact.create(newContact, (err, businessContactsCollection) =>{
  else
  {
      //refresh the business contact list
-     res.redirect('/list');
-     
+     res.render('index', { title: 'businessContacts-list', page: 'Business Contact List'});
  }
 });
 }
@@ -175,7 +174,7 @@ export function ProcessEditPage (req: Request, res:Response, next: NextFunction)
     let id = req.params.id
 
     let updatedContact = new BusinessContact({
-        "_id" : id,
+        "id" : id,
         "contactName": req.body.contactName,
     "contactNumber": req.body.contactNumber,
     "emailAddress": req.body.emailAddress,
@@ -189,12 +188,9 @@ export function ProcessEditPage (req: Request, res:Response, next: NextFunction)
         }
         else
         {
-            //refresh the business contact list
-            res.redirect('/list');
-            //res.render('index', { title: 'list', page: 'Business Contact List'});
+             //refresh the business contact list
+     res.render('index', { title: 'businessContacts-list', page: 'Business Contact List'});
         }
-         
-        
     })
 }
 export function ProcessDeletePage (req: Request, res:Response, next: NextFunction): void
@@ -209,7 +205,7 @@ export function ProcessDeletePage (req: Request, res:Response, next: NextFunctio
         else
         {
              //refresh the business contact list
-             res.redirect('/list');
+     res.render('index', { title: 'businessContacts-list', page: 'Business Contact List'});
         }  
     });
 }

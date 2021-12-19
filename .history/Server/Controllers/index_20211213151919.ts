@@ -209,7 +209,7 @@ export function ProcessDeletePage (req: Request, res:Response, next: NextFunctio
         else
         {
              //refresh the business contact list
-             res.redirect('/list');
+     res.render('index', { title: 'list', page: 'Business Contact List'});
         }  
     });
 }

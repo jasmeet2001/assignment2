@@ -175,7 +175,7 @@ export function ProcessEditPage (req: Request, res:Response, next: NextFunction)
     let id = req.params.id
 
     let updatedContact = new BusinessContact({
-        "_id" : id,
+        "id" : id,
         "contactName": req.body.contactName,
     "contactNumber": req.body.contactNumber,
     "emailAddress": req.body.emailAddress,
@@ -209,7 +209,7 @@ export function ProcessDeletePage (req: Request, res:Response, next: NextFunctio
         else
         {
              //refresh the business contact list
-             res.redirect('/list');
+     res.render('index', { title: 'list', page: 'Business Contact List'});
         }  
     });
 }

@@ -47,13 +47,16 @@
           <a class="nav-link" href="/contact"><i class ="fas fa-phone"></i>Contact Me</a>
         </li>
 
+        <% if(typeof displayName == 'string' && displayName) { %>  
         <% if (title == "list" ) { %>
-          <li class="nav-item active">
+          <a class="nav-item active" href="/list"><i class="fas fa-phone"></i> Business Contacts </a>
           <% } else { %>
-          <li class ="nav-item">
+          <a class ="nav-item" href="/list"><i class="fas fa-phone"></i> Business Contacts </a>>
           <% } %>
-              <a class="nav-link" href="/login"><i class ="fas fa-map"></i>Business Contacts</a>
-            </li>
+              <li class ="nav-item">
+
+              </li>
+            
     
 
         <% if(typeof displayName == 'string' && displayName) { %> 
